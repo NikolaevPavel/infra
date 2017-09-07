@@ -1,24 +1,37 @@
 {
+
+"variables": {
+"my_project_id": null,
+"my_source_image": null,
+"my_machine_type": "",
+"my_network": ""
+},
+
 "builders": [
 {
 "type": "googlecompute",
-"project_id": "week-3-178312",
+"project_id": "{{user `my_project_id`}}",
 "image_name": "reddit-base-{{timestamp}}",
-"source_image": "ubuntu-1604-xenial-v20170815a",
+"source_image": "{{user `my_source_image`}}",
 "zone": "europe-west1-b",
 "ssh_username": "appuser",
-"machine_type": "f1-micro"
-}
-],
-"provisioners": [
-{
-"type": "shell",
-"script": "scripts/install_ruby.sh"
-},
-{
-"type": "shell",
-"script": "scripts/install_mongodb.sh",
-"execute_command": "sudo {{.Path}}"
-}
-]
+"machine_type": "{{user `my_machine_type`}}",
+"image_description": "Ubuntu1604_backed_mongodb_and_ruby_1.0",
+"disk_type": "pd-standard",
+"disk_size": "10",
+"network": "{{user `my_network`}}",
+"tags": "Ubuntu16mongoruby"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "scripts/install_ruby.sh"
+    },
+    {
+      "type": "shell",
+      "script": "scripts/install_mongodb.sh",
+      "execute_command": "sudo {{.Path}}"
+    }
+  ]
 }
