@@ -1,0 +1,6 @@
+{
+  "my_project_id": "week-3-178312",
+  "my_machine_type": "f1-micro",
+  "my_source_image": "ubuntu-1604-xenial-v20170815a",
+  "my_network": "default"
+}
