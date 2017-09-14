@@ -1,0 +1,32 @@
+{
+
+"variables": {
+"my_project_id": null,
+"my_source_image": null,
+"my_machine_type": "",
+"my_network": ""
+},
+
+"builders": [
+{
+"type": "googlecompute",
+"project_id": "{{user `my_project_id`}}",
+"image_name": "reddit-app-{{timestamp}}",
+"source_image": "{{user `my_source_image`}}",
+"zone": "europe-west1-b",
+"ssh_username": "appuser",
+"machine_type": "{{user `my_machine_type`}}",
+"image_description": "Ubuntu1604_ruby",
+"disk_type": "pd-standard",
+"disk_size": "10",
+"network": "{{user `my_network`}}",
+"tags": "ubuntu16ruby"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "scripts/install_ruby.sh"
+    }
+  ]
+}

@@ -18,3 +18,17 @@ variable public_key_path {
 variable private_key_path {
   description = "path to the public key used for connection"
 }
+
+variable app_disk_image {
+  description = "Disk image for reddit app"
+  default     = "reddit-app-base"
+}
+
+variable db_disk_image {
+  description = "Disk image for reddit db"
+  default     = "reddit-db-base"
+}
+
+variable ssh_access_only_from_ip {
+  description = "Allow ssh access from IP"
+}
