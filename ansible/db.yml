@@ -1,0 +1,5 @@
+- name:            Configure MongoDB & restart daemon
+  hosts:           db
+  become:          true
+  roles:
+    - db
