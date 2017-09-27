@@ -30,10 +30,12 @@
         owner:     appuser
         group:     appuser
       notify:      reload puma
+
     - name:        Add config for DB connection
       template:
         src:       templates/db_config.j2
         dest:      /home/appuser/db_config
+
     - name:        enable puma
       become:      true
       systemd:     name=puma enabled=yes
@@ -52,6 +54,7 @@
         dest:      /home/appuser/reddit
         version:   monolith
       notify:      restart puma
+
     - name:        bundle install
       bundler:
         state:     present
