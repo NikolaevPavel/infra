@@ -4,3 +4,9 @@
 *.tfvars
 .terraform/
 *.retry
+.vagrant/
+*.logs
+*.log
+*.molecule
+.cache/
+*.pyc
